@@ -1,0 +1,77 @@
+:root {
+  --paper: #eef1f3;
+  --ink: #14212b;
+  --muted: #5d6b76;
+  --line: #cfd7dc;
+  --free: #1b7f5f;
+  --held: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+
+main { max-width: 680px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+h1 { margin: 0; font-size: 2.6rem; line-height: 1; font-weight: 800; letter-spacing: -0.04em; }
+.sub { margin: 0.5rem 0 2rem; color: var(--muted); max-width: 46ch; }
+
+.me, .add { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.me input { flex: 1 1 150px; }
+.add input { flex: 1 1 200px; }
+
+input, select, button {
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+}
+button { cursor: pointer; }
+button:hover { border-color: var(--ink); }
+button.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+#msg { min-height: 1.6rem; margin: 0.5rem 0 1rem; color: var(--held); font-size: 0.95rem; }
+
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+#board { border-top: 2px solid var(--ink); }
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.info { flex: 1 1 200px; min-width: 0; padding-left: 1.1rem; position: relative; }
+.info::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--free);
+}
+.held .info::before { background: var(--held); }
+.mine .info::before { background: var(--ink); }
+.name { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+.who { color: var(--muted); overflow-wrap: anywhere; }
+.note { margin-left: 0.5rem; font-style: italic; }
+.clock { font-size: 1.75rem; font-weight: 300; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.btns { display: flex; gap: 0.4rem; }
+
+h2 { margin: 3rem 0 0.75rem; font-size: 1.1rem; font-weight: 700; }
+#log li { padding: 0.25rem 0; color: var(--muted); }
+#log b { color: var(--ink); font-weight: 600; }
+#log time { margin-left: 0.5rem; }
+.empty { padding: 1rem 0; color: var(--muted); }
